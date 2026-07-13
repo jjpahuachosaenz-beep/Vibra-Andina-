@@ -58,7 +58,8 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            align-items: center;
+            gap: 25px;
         }
 
         nav a {
@@ -73,13 +74,26 @@
             color: var(--verde-marca);
         }
 
-        .btn-top {
-            display: none; /* Oculto para seguir el diseño exacto de la foto */
+        /* Botón de Registro a la derecha en el menú */
+        .btn-registro-top {
+            background-color: var(--verde-marca);
+            color: white;
+            padding: 8px 18px;
+            text-decoration: none;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: opacity 0.3s;
         }
 
-        /*================ HERO PREMIUM =================*/
+        .btn-registro-top:hover {
+            opacity: 0.9;
+            color: white;
+        }
+
+        /*================ HERO HUANCAYO =================*/
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1628157582853-a796fa650a6a?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
             height: 75vh;
             display: flex;
             justify-content: center;
@@ -120,6 +134,8 @@
             text-transform: uppercase;
             transition: background 0.3s;
             display: inline-block;
+            border: none;
+            cursor: pointer;
         }
 
         .boton:hover {
@@ -147,30 +163,33 @@
             margin-bottom: 40px;
         }
 
-        /*================ CARDS ESTILO FOTO =================*/
-        .cards, .destinos {
+        /*================ DESTINOS =================*/
+        .destinos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
 
-        .card, .destino {
+        .destino {
             background: white;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             border: 1px solid #eef0f2;
             transition: transform 0.3s;
+            border-top: 4px solid var(--verde-marca);
+            padding: 0 0 25px 0;
         }
 
-        .card:hover, .destino:hover {
+        .destino:hover {
             transform: translateY(-3px);
         }
 
-        /* Estilo borde superior verde para destinos */
-        .destino {
-            border-top: 4px solid var(--verde-marca);
-            padding: 30px 20px;
+        .destino img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            margin-bottom: 15px;
         }
 
         .destino h3 {
@@ -179,23 +198,41 @@
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            padding: 0 15px;
         }
 
         .destino p {
             color: #666;
             font-size: 0.95rem;
+            padding: 0 15px;
         }
 
-        /*================ NOSOTROS =================*/
+        /*================ CARDS COMUNES (NOSOTROS / EXPERIENCIAS) =================*/
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #eef0f2;
+            transition: transform 0.3s;
+            padding: 30px 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
         #nosotros > p {
             max-width: 800px;
             margin: 0 auto 40px;
             font-size: 1.05rem;
             color: #444;
-        }
-
-        #nosotros .card {
-            padding: 30px 20px;
         }
 
         #nosotros .card i {
@@ -204,16 +241,7 @@
             margin-bottom: 15px;
         }
 
-        #nosotros .card h3 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
         /*================ EXPERIENCIAS =================*/
-        #experiencias .card {
-            padding: 25px 20px;
-        }
-
         #experiencias .card .emoji {
             font-size: 1.8rem;
             margin-bottom: 10px;
@@ -230,10 +258,6 @@
         }
 
         /*================ PAQUETES =================*/
-        #paquetes .card {
-            padding: 35px 20px;
-        }
-
         #paquetes .card h3 {
             font-size: 1.2rem;
             color: #555;
@@ -254,6 +278,34 @@
             padding-left: 15%;
         }
 
+        /*================ FORMULARIO DE REGISTRO =================*/
+        #registro {
+            background-color: #f4f6f7;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .formulario-box {
+            max-width: 550px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .formulario-box input, .formulario-box select, .formulario-box textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+        }
+
         /*================ GALERIA =================*/
         .galeria-grid {
             display: grid;
@@ -266,6 +318,11 @@
             height: 180px;
             object-fit: cover;
             border-radius: 6px;
+            transition: transform 0.2s;
+        }
+
+        .galeria-grid img:hover {
+            transform: scale(1.02);
         }
 
         /*================ CONTACTO =================*/
@@ -296,20 +353,16 @@
 </head>
 <body>
 
-<!--================ MENU =================-->
+<!--================ MENU CORREGIDO (IGUAL AL DE TU FOTO) =================-->
 <header>
     <div class="logo">
         <h2>▲ Vibra Andina</h2>
     </div>
     <nav>
         <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
             <li><a href="#destinos">Destinos</a></li>
-            <li><a href="#experiencias">Experiencias</a></li>
-            <li><a href="#paquetes">Paquetes</a></li>
-            <li><a href="#galeria">Galería</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#paquetes">Hojas de Ruta</a></li> <!-- Modificado según tu diseño -->
+            <li><a href="#registro" class="btn-registro-top">Reservas</a></li> <!-- Botón único -->
         </ul>
     </nav>
 </header>
@@ -321,7 +374,7 @@
         <p>
             Vive experiencias auténticas, vive la cultura. Explora destinos únicos y descubre un turismo sostenible diseñado para quienes buscan algo más que unas simples vacaciones.
         </p>
-        <a href="#paquetes" class="boton">Reserva tu viaje</a>
+        <a href="#registro" class="boton">Reserva tu viaje</a>
     </div>
 </section>
 
@@ -330,16 +383,19 @@
     <h2 class="seccion-titulo">Nuestros Destinos</h2>
     <p class="seccion-subtitulo">Andes Sostenibles y Turismo Vivencial en la región Junín</p>
     
-    <div class="destinos">
+    <div class="destinos-grid">
         <div class="destino">
+            <img src="img/ingenio.jpg" alt="Ingenio">
             <h3>Ingenio</h3>
             <p>Naturaleza, truchas, paisajes y tranquilidad.</p>
         </div>
         <div class="destino">
+            <img src="img/huayao.jpg" alt="Huayao">
             <h3>Huayao</h3>
             <p>Turismo rural, gastronomía y cultura viva.</p>
         </div>
         <div class="destino">
+            <img src="img/chongos.jpg" alt="Chongos Alto">
             <h3>Chongos Alto</h3>
             <p>Historia, tradición y aventura.</p>
         </div>
@@ -440,14 +496,34 @@
     </div>
 </section>
 
+<!--================ FORMULARIO DE REGISTRO =================-->
+<section id="registro">
+    <h2 class="seccion-titulo">Regístrate</h2>
+    <p class="seccion-subtitulo">Déjanos tus datos y separa tu cupo para la próxima aventura</p>
+    
+    <form class="formulario-box" action="#" method="POST">
+        <input type="text" placeholder="Nombre Completo" required>
+        <input type="email" placeholder="Correo Electrónico" required>
+        <input type="tel" placeholder="Número de WhatsApp (Ej: +51...)" required>
+        <select required>
+            <option value="" disabled selected>Selecciona tu Paquete de interés</option>
+            <option value="cultural">Paquete Cultural - S/.90</option>
+            <option value="aventura">Paquete Aventura - S/.120</option>
+            <option value="premium">Paquete Premium - S/.180</option>
+        </select>
+        <textarea rows="4" placeholder="¿Tienes alguna duda o requerimiento especial? Envíale un mensaje a nuestro equipo..."></textarea>
+        <button type="submit" class="boton">Enviar Registro</button>
+    </form>
+</section>
+
 <!--================ GALERIA =================-->
 <section id="galeria">
     <h2 class="seccion-titulo">Galería</h2>
     <div class="galeria-grid">
-        <img src="https://images.unsplash.com/photo-1568454537842-d933259bb258?auto=format&fit=crop&w=400&q=80">
-        <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=400&q=80">
-        <img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=400&q=80">
-        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=400&q=80">
+        <img src="img/foto1.jpg" alt="Experiencia Vibra Andina 1">
+        <img src="img/foto2.jpg" alt="Experiencia Vibra Andina 2">
+        <img src="img/foto3.jpg" alt="Experiencia Vibra Andina 3">
+        <img src="img/foto4.jpg" alt="Experiencia Vibra Andina 4">
     </div>
 </section>
 
